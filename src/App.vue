@@ -28,12 +28,23 @@ export default {
           this.apiProjectResults = results.data['projects'];
           this.apiTypeResults = results.data['types'];
           this.apiTechnologiesResults = results.data['technologies'];
-          console.log();
         })
         .catch(error => {
           console.error('Error fetching API:', error);
         });
-    }
+    },
+    getProjectDetails() {
+      const slug = this.$route.params.slug;
+      axios.get(`/api/projects/${slug}`)
+        .then(response => {
+          this.project = response.data.project;
+        })
+        .catch(error => {
+          console.error('Error fetching project details:', error);
+          // Handle the error, e.g., redirect to a 404 page
+          this.$router.push({ name: 'error-404' });
+        });
+    },
   },
   mounted() {
     this.getApi();
@@ -42,8 +53,7 @@ export default {
 </script>
 
 <template>
-  <RouterView :projects="apiProjectResults"
-              :typesProps="apiTypeResults"/>
+  <RouterView :projects="project"/>
 
 </template>
 
