@@ -1,4 +1,5 @@
 <script>
+import Header from '../components/partials/Header.vue';
 export default {
   name: 'ProjectsCard',
   props: {
@@ -6,15 +7,19 @@ export default {
       type: Array,
       required: true
     }
+  },
+  components:{
+    Header
   }
 }
 </script>
 
-<!-- Nel template di ProjectsCard.vue -->
 <template>
+  <Header />
   <h2>Projects List:</h2>
   <div class="d-flex justify-content-evenly py-4 gap-2 flex-wrap">
     <div class="card mb-3 d-flex" style="width: 400px;" v-for="project in projects" :key="project.id">
+      {{ console.log(project)}}
       <div class="row g-0">
         <div class="col-md-4">
           <img src="..." class="img-fluid rounded-start" alt="...">

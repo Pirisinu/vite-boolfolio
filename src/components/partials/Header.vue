@@ -16,16 +16,16 @@
     <nav>
       <ul>
         <li>
-          <router-link :to="{name: 'home'}">Home</router-link>
+          <router-link :to="{name: 'home'}">home</router-link>
         </li>
         <li>
-          <router-link :to="{name: 'about'}">Chi siamo</router-link>
+          <router-link :to="{name: 'projects'}">Projects</router-link>
         </li>
         <li>
-          <router-link :to="{name: 'blog'}">Proggetti</router-link>
+          <router-link :to="{name: 'about'}">chi siamo</router-link>
         </li>
         <li>
-          <router-link :to="{name: 'contacts'}">Contatti</router-link>
+          <router-link :to="{name: 'contacts'}">contatti</router-link>
         </li>
       </ul>
     </nav>
@@ -35,8 +35,8 @@
 
 <style lang="scss" scoped>
 header{
+
   width: 100%;
-  height: 50px;
   text-align: center;
   padding: 20px;
   ul{
@@ -45,12 +45,11 @@ header{
       margin: 0 10px;
       display:inline-block;
       a{
-        color:white;
         text-decoration: none;
         text-transform:uppercase;
         &.active{
           font-weight: bold;
-          color:yellow;
+          color:red;
         }
         &:hover{
           text-decoration:underline;
@@ -63,7 +62,6 @@ header{
 
 .router-link-exact-active{
   font-weight: bold;
-  color:yellow;
 }
 
 </style>

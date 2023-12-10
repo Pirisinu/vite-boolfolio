@@ -2,24 +2,31 @@
 import axios from "axios";
 import { store } from './data/store';
 import Header from './components/partials/Header.vue';
-import ProjectsCard from './components/ProjectsCard.vue';
+import ProjectCard from "./components/ProjectCard.vue";
+
+
 
 export default {
   name: 'App',
   data() {
     return {
-      apiResults: []
+      apiProjectResults: [],
+      apiTypeResults: [],
+      apiTechnologiesResults: [],
     };
   },
   components: {
     Header,
-    ProjectsCard
-  },
+    ProjectCard,
+},
   methods: {
     getApi() {
       axios.get(store.apiUrl + 'projects-api')
         .then(results => {
-          this.apiResults = results.data.result;
+          this.apiProjectResults = results.data['projects'];
+          this.apiTypeResults = results.data['types'];
+          this.apiTechnologiesResults = results.data['technologies'];
+          console.log();
         })
         .catch(error => {
           console.error('Error fetching API:', error);
@@ -33,16 +40,13 @@ export default {
 </script>
 
 <template>
-  <div>
-    <Header />
-    <div class="main-wrapper">
-      <div class="container">
-        <ProjectsCard :projects="apiResults" />
-      </div>  
-    </div>  
-  </div>    
+  <RouterView :projects="apiProjectResults"
+              :types="apiTypeResults"
+              :technologies="apiTechnologiesResults"/>
+
 </template>
 
+
 <style lang="scss" scoped>
-/* Stili aggiuntivi se necessario */
+
 </style>
