@@ -10,6 +10,7 @@ export default {
   name: 'App',
   data() {
     return {
+      apiAll: [],
       apiProjectResults: [],
       apiTypeResults: [],
       apiTechnologiesResults: [],
@@ -23,6 +24,7 @@ export default {
     getApi() {
       axios.get(store.apiUrl + 'projects-api')
         .then(results => {
+          this.apiAll = results.data;
           this.apiProjectResults = results.data['projects'];
           this.apiTypeResults = results.data['types'];
           this.apiTechnologiesResults = results.data['technologies'];
