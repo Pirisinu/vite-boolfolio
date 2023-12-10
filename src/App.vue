@@ -41,8 +41,7 @@ export default {
 
 <template>
   <RouterView :projects="apiProjectResults"
-              :types="apiTypeResults"
-              :technologies="apiTechnologiesResults"/>
+              :typesProps="apiTypeResults"/>
 
 </template>
 
