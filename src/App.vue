@@ -50,15 +50,21 @@ export default {
 
 <template>
   <Header />
-  <div class="h-100">
-    <div class="container m-3">
-      <router-view></router-view>
-    </div>
-  </div>
+  <main>
+      <div class="my-container p-3">
+        <div class="box">
+          <router-view></router-view>
+        </div>
+      </div>
+  </main>
   
 </template>
 
 
 <style lang="scss" scoped>
-
+.my-container {
+  background-color: cadetblue;
+  height: calc(100vh - 60px);
+  overflow: auto
+}
 </style>

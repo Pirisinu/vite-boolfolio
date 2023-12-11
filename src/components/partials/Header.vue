@@ -35,7 +35,8 @@
 
 <style lang="scss" scoped>
 header{
-
+  background-color:black;
+  height: 60px;
   width: 100%;
   text-align: center;
   padding: 20px;
