@@ -21,18 +21,7 @@ export default {
     getApi() {
       axios.get(store.apiUrl + 'projects-api')
         .then(results => {
-
-          this.store.apiAll = results.data;
-          this.store.apiProjectResults = results.data['projects'];
-          this.store.apiTypeResults = results.data['types'];
-          this.store.apiTechnologiesResults = results.data['technologies'];
-          
-
-          this.apiAll = results.data;
-          this.apiProjectResults = results.data['projects'];
-          this.apiTypeResults = results.data['types'];
-          this.apiTechnologiesResults = results.data['technologies'];
-
+          this.store.projects = results.data.projects;
         })
         .catch(error => {
           console.error('Error fetching API:', error);
@@ -53,18 +42,19 @@ export default {
   },
   mounted() {
     console.log(store.apiAll);
-    console.log(store.apiProjectResults);
-    console.log(store.apiTypeResults);
-    console.log(store.apiTechnologiesResults);
+
     this.getApi();
   }
 }
 </script>
 
 <template>
-
   <Header />
-  <router-view></router-view>
+  <div class="h-100">
+    <div class="container m-3">
+      <router-view></router-view>
+    </div>
+  </div>
   
 </template>
 

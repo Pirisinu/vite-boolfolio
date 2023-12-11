@@ -1,20 +1,40 @@
 <script>
+import { store } from '../data/store';
+import axios from "axios";
+
 export default {
   name: 'ProjectDetails',
   components: {},
   props: {},
   data() {
-    return {}
+    return {
+      project:[]
+    }
   },
-  mounted() {},
+  mounted() {
+    this.getAPI(store.apiUrl + 'show-project/' + this.$route.params.slug)
+    console.log(this.projects);
+  },
   beforeDestroy() {},
-  methods: {}
+  methods: {
+    getAPI(url) {
+      axios.get(url)
+        .then((response) => {
+          this.project = response.data;
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error);
+        });
+    },
+  }
 }
 </script>
 
 <template>
   <div>
-    <h1>as</h1>
+    ciao
+    {{ this.project.title }}
   </div>
 </template>
 
