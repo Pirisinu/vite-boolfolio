@@ -1,9 +1,8 @@
 <script>
-import Header from '../components/partials/Header.vue';
 export default {
   name: 'Home',
   components: {
-    Header
+    
   },
   props: {},
   data() {
@@ -16,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <Header />
+
   <div>
     <h1>Home</h1>
   </div>

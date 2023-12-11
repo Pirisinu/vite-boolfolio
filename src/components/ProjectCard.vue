@@ -1,5 +1,4 @@
 <script>
-import Header from '../components/partials/Header.vue';
 export default {
   name: 'ProjectsCard',
   data() {
@@ -18,13 +17,12 @@ export default {
     },
   },
   components:{
-    Header
   },
   methods:{
     getTypeName(typeId) {
-      console.log(typeId);
+      //console.log(typeId);
       const typeName = this.typesProps.find(type => type.id === typeId);
-      console.log(typeName.name);
+      //console.log(typeName.name);
       return typeName.name ;
     },
   }
@@ -32,7 +30,6 @@ export default {
 </script>
 
 <template>
-  <Header />
   <h2>Projects List:</h2>
   <div class="d-flex justify-content-evenly py-4 gap-2 flex-wrap">
     <div class="card mb-3 d-flex" style="width: 400px;" v-for="project in projects" :key="project.id">

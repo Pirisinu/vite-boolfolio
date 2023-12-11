@@ -1,9 +1,8 @@
 <script>
-import Header from '../components/partials/Header.vue';
 export default {
   name: 'Contacts',
   components: {
-    Header
+    
   },
   props: {},
   data() {
@@ -16,7 +15,6 @@ export default {
 </script>
 
 <template>
-    <Header />
   <div>
     <h1>Contacts</h1>
   </div>
